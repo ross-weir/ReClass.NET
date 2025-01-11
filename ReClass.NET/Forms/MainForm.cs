@@ -410,6 +410,11 @@ namespace ReClassNET.Forms
 			currentProject.RemoveUnusedClasses();
 		}
 
+		private void generateCCodeToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			ShowCodeGeneratorForm(new CCodeGenerator());
+		}
+
 		private void generateCppCodeToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			ShowCodeGeneratorForm(new CppCodeGenerator(currentProject.TypeMapping));
