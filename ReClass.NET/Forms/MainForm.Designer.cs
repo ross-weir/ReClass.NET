@@ -163,6 +163,7 @@ namespace ReClassNET.Forms
 			this.cleanUnusedClassesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.showEnumsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
+			this.generateCCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.generateCppCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.generateCSharpCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1299,7 +1300,8 @@ namespace ReClassNET.Forms
             this.cleanUnusedClassesToolStripMenuItem,
             this.showEnumsToolStripMenuItem,
             this.toolStripSeparator16,
-            this.generateCppCodeToolStripMenuItem,
+			this.generateCCodeToolStripMenuItem,
+			this.generateCppCodeToolStripMenuItem,
             this.generateCSharpCodeToolStripMenuItem});
 			this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
 			this.projectToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
@@ -1333,6 +1335,14 @@ namespace ReClassNET.Forms
 			// toolStripSeparator16
 			// 
 			this.toolStripSeparator16.Name = "toolStripSeparator16";
+			// 
+			// generateCCodeToolStripMenuItem
+			// 
+			this.generateCCodeToolStripMenuItem.Image = global::ReClassNET.Properties.Resources.B16x16_Page_Code_Cpp;
+			this.generateCCodeToolStripMenuItem.Name = "generateCCodeToolStripMenuItem";
+			this.generateCCodeToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+			this.generateCCodeToolStripMenuItem.Text = "Generate C Code...";
+			this.generateCCodeToolStripMenuItem.Click += new System.EventHandler(this.generateCCodeToolStripMenuItem_Click);
 			this.toolStripSeparator16.Size = new System.Drawing.Size(195, 6);
 			// 
 			// generateCppCodeToolStripMenuItem
@@ -1462,6 +1472,7 @@ namespace ReClassNET.Forms
 		private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem cleanUnusedClassesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
+		private System.Windows.Forms.ToolStripMenuItem generateCCodeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem generateCppCodeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem generateCSharpCodeToolStripMenuItem;
 		private System.Windows.Forms.Timer processUpdateTimer;

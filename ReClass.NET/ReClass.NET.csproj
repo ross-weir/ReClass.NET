@@ -144,6 +144,7 @@
     <Compile Include="AddressParser\Parser.cs" />
     <Compile Include="AddressParser\Token.cs" />
     <Compile Include="AddressParser\Tokenizer.cs" />
+    <Compile Include="CodeGenerator\CCodeGenerator.cs" />
     <Compile Include="CodeGenerator\Language.cs" />
     <Compile Include="Core\CoreFunctionsManager.cs" />
     <Compile Include="Core\DataExchange.cs" />
