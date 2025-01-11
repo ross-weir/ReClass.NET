@@ -307,8 +307,9 @@ namespace ReClassNET.Forms
 
 			using var sfd = new SaveFileDialog
 			{
-				DefaultExt = ReClassNetFile.FileExtension,
-				Filter = $"{ReClassNetFile.FormatName} (*{ReClassNetFile.FileExtension})|*{ReClassNetFile.FileExtension}"
+				DefaultExt = ReClassNetFile.DefaultFileExtension,
+				Filter = $"{ReClassNetFile.FormatName} (*{ReClassNetFile.DefaultFileExtension})|*{ReClassNetFile.DefaultFileExtension}"
+						+ $"|{ReClassNetFile.AlternateFormatName} (*{ReClassNetFile.AlternateFileExtension})|*{ReClassNetFile.AlternateFileExtension}"
 			};
 
 			if (sfd.ShowDialog() == DialogResult.OK)
@@ -473,6 +474,7 @@ namespace ReClassNET.Forms
 			var parentNode = node?.GetParentContainer();
 
 			var nodeIsClass = node is ClassNode;
+			var nodeIsContainer = node is BaseContainerNode;
 			var nodeIsSearchableValueNode = node switch
 			{
 				BaseHexNode _ => true,
@@ -494,8 +496,8 @@ namespace ReClassNET.Forms
 				_ => false
 			};
 
-			addBytesToolStripMenuItem.Enabled = parentNode != null || nodeIsClass;
-			insertBytesToolStripMenuItem.Enabled = count == 1 && parentNode != null && !nodeIsClass;
+			addBytesToolStripMenuItem.Enabled = parentNode != null || nodeIsContainer;
+			insertBytesToolStripMenuItem.Enabled = count == 1 && parentNode != null && !nodeIsContainer;
 
 			changeTypeToolStripMenuItem.Enabled = count > 0 && !nodeIsClass;
 
@@ -755,7 +757,8 @@ namespace ReClassNET.Forms
 				{
 					switch (Path.GetExtension(files.First()))
 					{
-						case ReClassNetFile.FileExtension:
+						case ReClassNetFile.DefaultFileExtension:
+						case ReClassNetFile.AlternateFileExtension:
 						case ReClassQtFile.FileExtension:
 						case ReClassFile.FileExtension:
 							e.Effect = DragDropEffects.Copy;
@@ -830,9 +833,10 @@ namespace ReClassNET.Forms
 			var node = selectedNodes.FirstOrDefault()?.Node;
 			var parentContainer = node?.GetParentContainer();
 			var nodeIsClass = node is ClassNode;
+			var isContainerNode = node is BaseContainerNode;
 
-			addBytesToolStripDropDownButton.Enabled = parentContainer != null || nodeIsClass;
-			insertBytesToolStripDropDownButton.Enabled = selectedNodes.Count == 1 && parentContainer != null && !nodeIsClass;
+			addBytesToolStripDropDownButton.Enabled = parentContainer != null || isContainerNode;
+			insertBytesToolStripDropDownButton.Enabled = selectedNodes.Count == 1 && parentContainer != null && !isContainerNode;
 
 			var enabled = selectedNodes.Count > 0 && !nodeIsClass;
 			toolStrip.Items.OfType<TypeToolStripButton>().ForEach(b => b.Enabled = enabled);
