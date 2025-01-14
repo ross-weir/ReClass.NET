@@ -122,7 +122,7 @@ namespace ReClassNET.CodeGenerator
 		{
 			nodeTypeToTypeDefinationMap = new Dictionary<Type, string>
 			{
-				[typeof(BoolNode)] = "_Bool",          // C99's bool type
+				[typeof(BoolNode)] = "bool",          // C99's bool type
 				[typeof(DoubleNode)] = "double",
 				[typeof(FloatNode)] = "float",
 				[typeof(FunctionPtrNode)] = "void*",
@@ -547,7 +547,7 @@ namespace ReClassNET.CodeGenerator
 				case ClassInstanceNode classInstanceNode:
 					return $"struct {classInstanceNode.InnerNode.Name}";
 				case EnumNode enumNode:
-					return enumNode.Enum.Name;
+					return $"enum {enumNode.Enum.Name}";
 			}
 
 			return null;
