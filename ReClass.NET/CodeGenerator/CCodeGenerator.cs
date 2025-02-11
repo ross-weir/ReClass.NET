@@ -265,16 +265,10 @@ namespace ReClassNET.CodeGenerator
 			Contract.Requires(@class != null);
 			Contract.Requires(classes != null);
 
-			writer.Write("struct ");
+			writer.Write("struct __attribute__((packed)) ");
 			writer.Write(@class.Name);
 
 			var skipFirstMember = false;
-			if (@class.Nodes.FirstOrDefault() is ClassInstanceNode inheritedFromNode)
-			{
-				skipFirstMember = true;
-
-				writer.Write(inheritedFromNode.InnerNode.Name);
-			}
 
 			if (!string.IsNullOrEmpty(@class.Comment))
 			{

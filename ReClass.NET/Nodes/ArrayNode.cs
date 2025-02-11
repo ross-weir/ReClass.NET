@@ -26,7 +26,7 @@ namespace ReClassNET.Nodes
 		{
 			return Draw(context, x, y, "Array");
 		}
-
+		
 		protected override Size DrawChild(DrawContext context, int x, int y)
 		{
 			var innerContext = context.Clone();
