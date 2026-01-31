@@ -131,7 +131,8 @@ namespace ReClassNET.Forms
             this.bannerBox = new ReClassNET.Controls.BannerBox();
             this.utf32TextSettingsLabel = new System.Windows.Forms.Label();
             this.utf32TextTypeTextBox = new System.Windows.Forms.TextBox();
-            this.settingsTabControl.SuspendLayout();
+            this.includeEnumsCheckBox = new System.Windows.Forms.CheckBox();
+			this.settingsTabControl.SuspendLayout();
             this.generalSettingsTabPage.SuspendLayout();
             this.fileAssociationGroupBox.SuspendLayout();
             this.commentsGroupBox.SuspendLayout();
@@ -668,7 +669,8 @@ namespace ReClassNET.Forms
             this.backgroundColorBox.TabIndex = 0;
             // 
             // typeDefinitionsSettingsTabPage
-            // 
+            //
+            this.typeDefinitionsSettingsTabPage.Controls.Add(this.includeEnumsCheckBox);
             this.typeDefinitionsSettingsTabPage.Controls.Add(this.utf32TextSettingsLabel);
             this.typeDefinitionsSettingsTabPage.Controls.Add(this.utf32TextTypeTextBox);
             this.typeDefinitionsSettingsTabPage.Controls.Add(this.nuintSettingsLabel);
@@ -1106,12 +1108,22 @@ namespace ReClassNET.Forms
             this.utf32TextSettingsLabel.Text = "UTF32:";
             // 
             // utf32TextTypeTextBox
-            // 
+            //
             this.utf32TextTypeTextBox.Location = new System.Drawing.Point(346, 230);
             this.utf32TextTypeTextBox.Name = "utf32TextTypeTextBox";
             this.utf32TextTypeTextBox.Size = new System.Drawing.Size(120, 20);
             this.utf32TextTypeTextBox.TabIndex = 51;
-            // 
+            //
+            // includeEnumsCheckBox
+            //
+            this.includeEnumsCheckBox.AutoSize = true;
+            this.includeEnumsCheckBox.Location = new System.Drawing.Point(6, 300);
+            this.includeEnumsCheckBox.Name = "includeEnumsCheckBox";
+            this.includeEnumsCheckBox.Size = new System.Drawing.Size(95, 17);
+            this.includeEnumsCheckBox.TabIndex = 53;
+            this.includeEnumsCheckBox.Text = "Include Enums";
+            this.includeEnumsCheckBox.UseVisualStyleBackColor = true;
+            //
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1247,5 +1259,6 @@ namespace ReClassNET.Forms
 		private System.Windows.Forms.TextBox nintTypeTextBox;
 		private System.Windows.Forms.Label utf32TextSettingsLabel;
 		private System.Windows.Forms.TextBox utf32TextTypeTextBox;
+		private System.Windows.Forms.CheckBox includeEnumsCheckBox;
 	}
 }

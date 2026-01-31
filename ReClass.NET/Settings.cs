@@ -76,6 +76,10 @@ namespace ReClassNET
 
 		public CustomDataMap CustomData { get; } = new CustomDataMap();
 
+		// Code Generation Settings
+
+		public bool IncludeEnumsInCodeGeneration { get; set; } = true;
+
 		public Settings Clone() => MemberwiseClone() as Settings;
 	}
 }

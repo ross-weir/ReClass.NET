@@ -29,7 +29,10 @@ namespace ReClassNET.Forms
 
 			codeRichTextBox.SetInnerMargin(5, 5, 5, 5);
 
-			var code = generator.GenerateCode(classes, enums, logger);
+			var enumsToUse = Program.Settings.IncludeEnumsInCodeGeneration
+				? enums
+				: Array.Empty<EnumDescription>();
+			var code = generator.GenerateCode(classes, enumsToUse, logger);
 
 			var buffer = new StringBuilder(code.Length * 2);
 			using (var writer = new StringWriter(buffer))

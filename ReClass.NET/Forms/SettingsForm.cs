@@ -129,6 +129,8 @@ namespace ReClassNET.Forms
 
 		private void SetTypeDefinitionBindings()
 		{
+			SetBinding(includeEnumsCheckBox, nameof(CheckBox.Checked), settings, nameof(Settings.IncludeEnumsInCodeGeneration));
+
 			SetBinding(boolTypeTextBox, nameof(TextBox.Text), typeMapping, nameof(CppTypeMapping.TypeBool));
 			SetBinding(int8TypeTextBox, nameof(TextBox.Text), typeMapping, nameof(CppTypeMapping.TypeInt8));
 			SetBinding(int16TypeTextBox, nameof(TextBox.Text), typeMapping, nameof(CppTypeMapping.TypeInt16));
